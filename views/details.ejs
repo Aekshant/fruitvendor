@@ -1,0 +1,47 @@
+<%- include("header") -%>
+
+<section class="arrival" id="arrival">
+<h1 class="heading"> <span>Details</span> </h1>
+
+<div class="box-container" style="">
+  <%posts.forEach(function(post){ %>
+    <div class="box">
+      <div class="image">
+              <img src="images/<%=post.itemName%>.jpg" alt="">
+      </div>
+        <div class="info">
+            <h3><%=post.itemName%> (<%=post.vendorName%>)</h3>
+            <div class="subInfo">
+                <strong class="price"> ₹<%=post.itemPrice%>/<%=post.priceUnit%></strong>
+            </div>
+              <div class="subInfo">
+                <h4>Contact No. <%=post.contactNo%></h4>
+            </div>
+                <div class="subInfo">
+                  <h4><%=post.locationState%>, <%=post.locationCity%>, <%=post.locationArea%></h4>
+              </div>
+              <div class="subInfo">
+                  <form class="" action="/detailwish" method="post">
+                <button type="submit" onclick="wish()" name="wishlist" value="<%=post.key%>" style="height:30px; width:60px;">Wishlist</button></form>
+                <%  if(!post.latitude){%>
+                    <button type="submit" onclick="notsave()" style="height:30px; width:60px;">Location</button>
+                  <%}else{%>
+                        <button type="submit" onclick="window.open('https://www.google.com/maps/search/?api=1&query=<%=post.latitude%>%2C<%=post.longitude%>')" style="height:30px; width:60px;">Location</button>
+                  <%}%>
+            </div>
+
+      </div>
+  </div>
+  <% });%>
+</div>
+</section>
+<script type="text/javascript">
+  function notsave() {
+  alert("Seller haven't yet mentioned his store location");
+}
+function wish() {
+alert("Added to Wishlist");
+}
+</script>
+
+<%- include("footer") -%>

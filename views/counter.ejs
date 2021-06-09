@@ -1,0 +1,66 @@
+<%- include("header") -%>
+<section class="arrival" id="arrival">
+<h1 class="heading"><span>My Stock</span></h1>
+<div class="box-container">
+  <%posts.forEach(function(post){ %>
+        <%post.userPosts.forEach(function(userPost){ %>
+    <div class="box">
+        <div class="image">
+
+            <img src="images/<%=userPost.itemName%>.jpg" alt="">
+
+        </div>
+        <div class="info">
+
+            <h3><%=userPost.vendorName%> (<%=userPost.itemName%>)</h3>
+
+            <div class="subInfo">
+                <strong class="price"> ₹<%=userPost.itemPrice%>/<%=userPost.priceUnit%></strong>
+            </div>
+
+            <div class="subInfo">
+              <form class="" action="/counterupdate" method="post">
+                <input type="text" autocomplete="off" name="newvalue" placeholder="Enter Prize" style="height:25px; width:90px;" ">
+            <button type="submit" name="postkey" onclick="postupdate()" value="<%=userPost.key%>" style="height:25px; width:90px;">Change Price</button>
+          </form>
+            </div>
+
+            <div class="subInfo">
+
+              <button type="submit" onclick="call(<%=userPost.key%>)" style="height:30px; width:85px;">Set Location</button>
+                <form class="" action="/counter" method="post">
+              <button type="submit" name="deletepost"  onclick="postdelete()" value="<%=userPost.key%>" formaction="/counterdelete" style="width:60px; height:30px;">Delete</button>
+            </form>
+        </div>
+        </div>
+    </div>
+      <% });%>
+          <% });%>
+</div>
+</section>
+
+<script type="text/javascript">
+  function call(key){
+    navigator.geolocation.getCurrentPosition((position)=>{
+      const lat=position.coords.latitude;
+      const lon=position.coords.longitude;
+    const data={lat,lon,key};
+    const options={
+      method:'POST',
+      headers:{'Content-Type':'application/json'},
+      body:JSON.stringify(data)
+    };
+    fetch('/setlocation',options)
+    window.alert("The current location is saved as store location")
+    });
+  }
+function postupdate(){
+    window.alert("The price has been updated")
+}
+function postdelete(){
+    window.alert("The item has been Deleted")
+}
+
+
+  </script>
+<%- include("footer") -%>

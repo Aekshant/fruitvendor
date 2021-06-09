@@ -1,0 +1,110 @@
+<%- include("header") -%>
+
+
+<h1 style="text-align: center;">Set up Location to find nerbly Vendors</h1>
+<form action="/locationFilter" method="post">
+<table style="margin-left: auto;
+  margin-right: auto;  border-spacing: 15px;">
+<td><h2>States</h2></td>
+  <td>
+  <input list="states" name="stateName" id="state" autocomplete="off" required>
+  <datalist id="states">
+    <option value="Maharashtra">
+  </datalist>
+</td></table>
+
+<table style="margin-left: auto;
+  margin-right: auto;  border-spacing: 15px;">
+<td><h2>Cities</h2></td>
+  <td>
+  <label for="city"></label>
+  <input list="cities" name="cityName" id="city" autocomplete="off">
+  <datalist id="cities">
+    <option value="Nagpur">
+  </datalist>
+
+</td></table>
+
+<table style="margin-left: auto;
+  margin-right: auto;  border-spacing: 15px;">
+<td><h2>Areas</h2></td>
+  <td>
+  <label for="area"></label>
+  <input list="areas" name="areaName" id="area" autocomplete="off">
+  <datalist id="areas">
+    <option value="Manewada Road">
+    <option value="Sakkardara">
+        <option value="Nandanwan">
+  </datalist>
+
+</td></table>
+
+<table style="margin-left: auto;
+  margin-right: auto;  border-spacing: 15px;">
+<td><h2>Item Type</h2></td>
+  <td>
+  <label for="item"></label>
+  <input list="items" name="itemType" id="item" autocomplete="off">
+  <datalist id="items">
+    <option value="Fruit">
+    <option value="Veggie">
+  </datalist>
+  </td>
+<td>
+  <input type="submit" name="submit">
+</td>
+</table>
+</form>
+<!-- filtermenu  ends -->
+
+<!-- section starts -->
+<section class="arrival" id="arrival">
+<h1 class="heading"> <span>Filtered Results</span> </h1>
+<div class="box-container">
+  <%if(posts.length==0){%>
+    <h3>Match not found</h3>
+  <%}%>
+  <%posts.forEach(function(post){ %>
+    <div class="box">
+      <div class="image">
+          <img src="images/<%=post.itemName%>.jpg" alt="">
+      </div>
+        <div class="info">
+            <h3><%=post.itemName%></h3>
+            <div class="subInfo">
+                <strong class="price"> ₹<%=post.itemPrice%>/<%=post.priceUnit%></strong>
+            </div>
+            <div class="subInfo">
+                <form action="/wishadd" method="post">
+              <button type="submit" onclick="wish()" name="wishlist" value="<%=post.key%>" style="height:30px; width:60px;">Wishlist</button></form>
+              <%  if(!post.latitude){%>
+                  <button type="submit" onclick="notsave()" style="height:30px; width:60px;">Location</button>
+                <%}else{%>
+                      <button type="submit" onclick="window.open('https://www.google.com/maps/search/?api=1&query=<%=post.latitude%>%2C<%=post.longitude%>')" style="height:30px; width:60px;">Location</button>
+                <%}%>
+                <form action="/details" method="post">
+              <button type="submit" name="details" value="<%=post.key%>" style="width:60px; height:30px;">Details</button></form>
+          </div>
+        </div>
+    </div>
+   <% });%>
+</div>
+</section>
+
+<!-- jquery cdn link  -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+<!-- owl carousel js file cdn link  -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
+
+<!-- custom js file link  -->
+<script type="text/javascript">
+  function notsave() {
+  alert("Seller haven't yet mentioned his store location");
+}
+function wish() {
+alert("Added to Wishlist");
+}
+</script>
+
+<%- include("footer") -%>

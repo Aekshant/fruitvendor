@@ -1,0 +1,47 @@
+.button {
+    display: inline-block;
+    text-align: center;
+    vertical-align: middle;
+    padding: 15px 17px;
+    border: 1px solid #b3b3b3;
+    border-radius: 12px;
+    background: #ffffff;
+    background: -webkit-gradient(linear, left top, left bottom, from(#ffffff), to(#ffffff));
+    background: -moz-linear-gradient(top, #ffffff, #ffffff);
+    background: linear-gradient(to bottom, #ffffff, #ffffff);
+    -webkit-box-shadow: #ffffff 0px 0px 40px 0px;
+    -moz-box-shadow: #ffffff 0px 0px 40px 0px;
+    box-shadow: #ffffff 0px 0px 40px 0px;
+    text-shadow: #ffffff 1px 1px 4px;
+    font: normal normal normal 20px arial;
+    color: #111111;
+    text-decoration: none;
+}
+<a class="button" href="#">Log out</a>
+
+
+21° 7' 26.37192"
+79° 6' 44.4132"
+
+https://www.google.com/maps/search/?api=1&query=21.1239922%2C79.112337
+https://www.google.com/maps/search/?api=1&query=latitude%2Clongitude
+
+www.google.com/maps/search/?api=1&query=21.1239922%2C79.112337
+banode
+21.1239922
+79.112337
+/////////////////////////*************************************geolocation api
+
+function success(pos) {
+  console.log(`Latitude : ${pos.coords.latitude}`);
+  console.log(`Longitude: ${pos.coords.longitude}`);
+}
+navigator.geolocation.getCurrentPosition(success);
+/////////////////////////////////
+
+function success(pos) {
+  const latitude=pos.coords.latitude
+  console.log(`Latitude : ${latitude}`);
+  console.log(`Longitude: ${pos.coords.longitude}`);
+}
+geolocation.getCurrentPosition(success);

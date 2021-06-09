@@ -1,0 +1,121 @@
+<%- include("header") -%>
+
+
+
+<head>
+<!-- Bootstrap CSS -->
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/css/bootstrap.min.css" integrity="sha384-r4NyP46KrjDleawBgD5tp8Y7UzmLA05oM1iAEQ17CSuDqnUK2+k9luXQOfXJCJ4I" crossorigin="anonymous">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" integrity="sha512-PgQMlq+nqFLV4ylk1gwUOgm6CtIIXkKwaIHp/PAIWHzig/lKZSEGKEysh0TCVbHJXCLN7WetD8TFecIky75ZfQ==" crossorigin="anonymous" />
+<link rel="stylesheet" type="text/css" href="css/style.css">
+</head>
+<body ><div class="container">
+  <div class="title">Registration for items</div>
+  <div class="content">
+    <form action="/registration"  method="post">
+      <div class="user-details">
+        <div class="input-box">
+          <span class="details">Vendor's Name</span>
+          <input type="text" name="vendorName" placeholder="Enter your fullname" autocomplete="off" required>
+        </div>
+        <div class="input-box">
+          <span class="details">Contact No.</span>
+          <input type="text" name="contactNo" placeholder="Enter your contact no." maxlength="10" autocomplete="off" required>
+        </div>
+        <div class="input-box">
+          <span class="details">Item Price</span>
+          <input type="text" name="itemPrice" placeholder="Enter Price" autocomplete="off" required>
+        </div>
+        <div class="input-box">
+            <span class="details"></span>
+          <label for="unit">Price Unit</label>
+          <input list="units" name="unitName" placeholder="Enter Price Unit" autocomplete="off" required>
+          <datalist id="units">
+              <option value="Unit">
+            <option value="Kg">
+                <option value="G">
+          </datalist>
+              </div>
+        <div class="input-box">
+            <span class="details"></span>
+          <label for="state">Location State</label>
+          <input list="states" name="stateName" id="state" placeholder="Enter State Name" autocomplete="off" required>
+          <datalist id="states">
+            <option value="Maharashtra">
+          </datalist>
+        </div>
+          <div class="input-box">
+              <span class="details"></span>
+            <label for="city">Location City</label>
+            <input list="cities" name="cityName" placeholder="Enter city Name" autocomplete="off" id="city" required>
+            <datalist id="cities">
+              <option value="Nagpur">
+            </datalist>
+          </div>
+        <div class="input-box">
+            <span class="details"></span>
+          <label for="area">Location Area</label>
+          <input list="areas" name="areaName" id="area" autocomplete="off" placeholder="Enter Area Name" required>
+          <datalist id="areas">
+            <option value="Manewada Road">
+            <option value="Sakkardara">
+            <option value="Nandanwan">
+          </datalist>
+        </div>
+
+          <div class="input-box">
+              <span class="details"></span>
+              <label for="">item Category</label>
+          <select class="" name="itemCategory" id="slct1" onchange="populate(this.id,'slct2')">
+            <option value="">Choose Category</option>
+            <option value="Fruit">Fruit</option>
+              <option value="Veggie">Veggie</option>
+              </select>
+          </div>
+        <div class="input-box">
+            <span class="details"></span>
+            <label for="">Item Name</label>
+              <select class="" name="itemName" id="slct2">
+                <option value="">Choose Category first</option>
+              </select>
+        </div>
+      </div>
+      <div class="button">
+        <input type="submit" value="Register" onclick="register()">
+      </div>
+    </form>
+  </div>
+</div>
+</body>
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+<!-- owl carousel js file cdn link  -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
+
+<!-- custom js file link  -->
+<script>
+  //for fruits
+  function populate(s1,s2){
+        var s1=document.getElementById(s1);
+        var s2=document.getElementById(s2);
+        s2.innerHTML="";
+        if(s1.value=="Fruit"){
+          var optionArray=['Orange|Orange','Banana|Banana','Guava|Guava','Pineapple|Pineapple','Strawberries|Strawberries','Pomegranate|Pomegranate','Custardapple|Custardapple','Grapes|Grapes','Mango|Mango',];
+        }else if(s1.value=='Veggie'){
+          var optionArray=['Eggplant|Eggplant','Beetroot|Beetroot','Bitter_gourd|Bitter_gourd','Cabbage|Cabbage','Carrot|Carrot','Cauliflower|Cauliflower','Cluster_beans|Cluster_beans','Corn|Corn','Cucumber|Cucumber','Fenugreek_leaves|Fenugreek_leaves','Garlic|Garlic','Fresh_ginger|Fresh_ginger','Green_chilli|Green_chilli','Lemon|Lemon','Mushroom|Mushroom','Onion|Onion','Lady_Finger|Lady_Finger','Peas|Peas','Pumpkin|Pumpkin','Red_chili|Red_chili','Tomato|Tomato','Potato|Potato','Taro_roots|Taro_roots'];
+        }
+        for(var option in optionArray){
+          var pair=optionArray[option].split("|");
+          var newoption=document.createElement("option");
+          newoption.value=pair[0];
+          newoption.innerHTML=pair[1];
+          s2.options.add(newoption);
+        }
+      }
+      function register(){
+        alert("Fill all fields,& check it on Counter")
+      }
+</script>
+
+<%- include("footer") -%>

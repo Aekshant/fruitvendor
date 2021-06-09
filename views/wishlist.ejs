@@ -1,0 +1,53 @@
+<%- include("header") -%>
+<section class="arrival" id="arrival">
+<h1 class="heading"> <span>Wish List</span> </h1>
+<div class="box-container">
+  <%if(posts.length==0){%>
+    <h3>Empty Wishlist</h3>
+  <%}%>
+  <%posts.forEach(function(post){ %>
+    <%post.wishPost.forEach(function(userPost){ %>
+    <div class="box">
+        <div class="image">
+                <img src="images/<%=userPost.itemName%>.jpg" alt="">
+
+        </div>
+        <div class="info">
+                  <h3>  <%=userPost.itemName%>  </h3>
+            <div class="subInfo">
+                <strong class="price"> ₹<%=userPost.itemPrice%>/<%=userPost.priceUnit%></strong>
+            </div>
+
+            <div class="subInfo">
+              <form action="/wishlistremove" method="post">
+              <button type="submit" name="removewish" value="<%=userPost.key%>" style="height:30px; width:60px;">Remove</button>
+              </form>
+              <%  if(!userPost.latitude){%>
+                  <button type="submit" onclick="notsave()" style="height:30px; width:60px;">Location</button>
+                <%}else{%>
+                      <button type="submit" onclick="window.open('https://www.google.com/maps/search/?api=1&query=<%=userPost.latitude%>%2C<%=userPost.longitude%>')" style="height:30px; width:60px;">Location</button>
+                <%}%>
+              <form class="" action="/details" method="post">
+            <button type="submit" name="details" value="<%=userPost.key%>" style="width:60px; height:30px;">Details</button></form>
+        </div>
+  </div>
+  </div>
+      <% });%>
+        <% });%>
+</div>
+</section>
+
+<!-- jquery cdn link  -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+<!-- owl carousel js file cdn link  -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
+
+<!-- custom js file link  -->
+<script type="text/javascript">
+  function notsave() {
+  alert("Seller haven't yet mentioned his store location");
+}
+</script>
+
+<%- include("footer") -%>

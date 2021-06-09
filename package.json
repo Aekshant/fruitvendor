@@ -1,0 +1,36 @@
+{
+  "name": "street-vendors",
+  "version": "1.0.0",
+  "main": "app.js",
+  "devDependencies": {
+    "nodemon": "^2.0.7"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "engines": {
+    "node": "14.16.1"
+  },
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "dotenv": "^9.0.2",
+    "ejs": "^3.1.6",
+    "express": "^4.17.1",
+    "express-session": "^1.17.1",
+    "gitignore": "^0.6.0",
+    "jquery": "^3.6.0",
+    "jsdom": "^16.5.3",
+    "mongoose": "^5.12.7",
+    "mongoose-encryption": "^2.1.0",
+    "mongoose-findorcreate": "^3.0.0",
+    "mongoose-type-url": "^2.1.0",
+    "passport": "^0.4.1",
+    "passport-google-oauth20": "^2.0.0",
+    "passport-local": "^1.0.0",
+    "passport-local-mongoose": "^6.1.0",
+    "session": "^0.1.0"
+  }
+}
