@@ -1,13 +1,8 @@
 require('dotenv').config();
 const express = require("express");
 const bodyParser = require("body-parser");
-const ejs=require("ejs");
 const mongoose=require("mongoose");
 require('mongoose-type-url');
-const session=require("express-session");
-const passport=require("passport");
-const passportLocalMongoose=require("passport-local-mongoose");
-const GoogleStrategy = require('passport-google-oauth20').Strategy;
 const findOrCreate = require('mongoose-findorcreate');
 
 const app = express();
@@ -16,16 +11,7 @@ app.use(express.static(__dirname + '/public'));
 app.use(express.json({limit:'1mb'}));
 app.use(bodyParser.urlencoded({extended: true}));
 
-app.use(session({
-  secret:"Im the one yeah",   //sessin initialization
-  resave:false,
-  saveUninitialized:false
-}));
-
-app.use(passport.initialize()); //passport initialization.
-app.use(passport.session()); // use passport to deal with session.
-
-mongoose.connect("mongodb+srv://kalyan:ghost7448152516@cluster11.olmgy.mongodb.net/vendorsDB",{ useNewUrlParser: true,useUnifiedTopology: true,useFindAndModify: false});
+mongoose.connect("mongodb://127.0.0.1:27017/vendorsDB",{ useNewUrlParser: true,useUnifiedTopology: true,useFindAndModify: false});
 mongoose.set("useCreateIndex",true);
 
 const detailSchema=new mongoose.Schema({
@@ -51,109 +37,59 @@ const userSchema=new mongoose.Schema({
   wishPost:Array
 });
 
-userSchema.plugin(passportLocalMongoose); // set userSchema to use passport-local-mongoose as plugin.
 userSchema.plugin(findOrCreate);
 
 const User=mongoose.model("User",userSchema);
 const Register=mongoose.model("Register",detailSchema);//model
 
-passport.use(User.createStrategy());
-     //used passport-local-mongoose to create log in strategy
-passport.serializeUser(function(user, done) {
-  done(null, user.id);
-});
-passport.deserializeUser(function(id, done) {
-  User.findById(id, function(err, user) {
-    done(err, user);
-  });
-});
-
-passport.use(new GoogleStrategy({
-    clientID: process.env.CLIENT_ID,
-    clientSecret: process.env.CLIENT_SECRET,
-    callbackURL: "https://young-lake-17619.herokuapp.com/auth/google/vendors",
-      userProfileURL: "https://www.googleapis.com/oauth2/v3/userinfo"
-  },
-  function(accessToken, refreshToken, profile, cb) {
-    User.findOrCreate({username:profile.emails[0].value, googleId: profile.id}, function (err, user) {
-      app.set('data',user.id);
-      return cb(err, user);
-    });
-  }
-));
 
 //signin and login interface
-app.get("/", function(req, res) {
-  res.render("home");
-});
-app.get("/auth/google",
-  passport.authenticate('google', { scope: ["profile","email"] })
-);
-app.get("/auth/google/vendors",
-  passport.authenticate('google', { failureRedirect: '/home' }),
-  function(req, res) {
-    // Successful authentication, redirect to secrets.
-    res.redirect('/fruits');
-});
 
 app.get("/logout",function(req,res){
   req.logout();
   res.redirect("/");
 });
-app.get("/fruits", function(req, res) {
-  if(req.isAuthenticated()){
+app.get("/", function(req, res) {
+  
       Register.find({},function(err,post){
         res.render("fruits", {posts:post});
       });
-    }else{
-        res.redirect("/");
-          }
+    
  });
 app.get("/veggies", function(req, res) {
-   if(req.isAuthenticated()){
+   
       Register.find({},function(err,post){
       res.render("veggies",{posts:post});
       });
-     }else{
-    res.redirect("/");
-    }
+     
 });
 app.get("/registration", function(req, res) {
-  if(req.isAuthenticated()){
+  
 res.render("registration");
-}else{
-    res.redirect("/");
-      }
+
 });
 app.get("/counter", function(req, res) {
-    if(req.isAuthenticated()){
+    
   const userId=app.get('data');
       User.find({_id:userId},function(err,post){
         res.render("counter",{posts:post});
       });
-    }else{
-    res.redirect("/");
-    }
+    
 });
 app.get("/wishlist", function(req, res) {
-    if(req.isAuthenticated()){
+    
         const userId=app.get('data')
           User.find({_id:userId},function(err,post){
 
       res.render("wishlist",{posts:post});
         });
-      }else{
-        res.redirect("/");
-      }
+      
 });
 app.get("/location", function(req, res) {
-    if(req.isAuthenticated()){
-        Register.find({},function(err,post){
-          res.render("location",{posts:post});
-        });
-    }else{
-        res.redirect("/");
-    }
+    
+    Register.find({},function(err,post){
+        res.render("location",{posts:post});
+    });
 });
 
 //post routes
@@ -357,5 +293,5 @@ if(port==null || port==""){
 }
 
 app.listen(port, function() {
-  console.log("Server started on port");
+  console.log("Server started on port " + port);
 });

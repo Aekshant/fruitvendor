@@ -1,0 +1,11 @@
+
+.onlyInput{
+    margin-left: 15%;
+    margin-top: .5rem;
+    width: 20rem;
+}
+
+.onlyInput span{
+    float:left;
+    font-size: smaller;
+}

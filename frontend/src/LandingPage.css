@@ -1,0 +1,25 @@
+
+.landingTransparent{
+  height: 100%;
+  width: 100%;
+  background-color: black;
+  border: 1px solid black;
+  opacity: 0.5;
+}
+
+
+.LandingPage-lineBetween{
+  border-left: 6px solid grey;
+  height: 3rem;
+  left: 50%;
+  margin-left: -3px;
+}
+
+.landingNavBar{
+  margin-top: 1rem;
+}
+
+.landingNavBar span{
+  color: whitesmoke;
+  margin-right: 3rem;
+}

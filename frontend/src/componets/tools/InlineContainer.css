@@ -1,0 +1,4 @@
+.inclineContainer {
+    display: flex;
+    flex-wrap: wrap;
+}

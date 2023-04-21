@@ -1,0 +1,18 @@
+
+
+
+.headers{
+    display: flex;
+    margin: 1rem;
+    align-items: center;
+}
+
+.head-icon{
+    width: 2rem;
+    margin-right: 0.5rem;
+}
+
+.header-inputBox{
+    margin: 1rem;
+    margin-left: auto;
+}

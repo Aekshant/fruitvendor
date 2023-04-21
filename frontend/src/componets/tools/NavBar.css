@@ -1,0 +1,19 @@
+
+
+.navbar{
+    background-color: #7AA874;
+    margin: .5rem;
+}
+
+.navbar a{
+    font-weight: bold;
+    margin-left: 1rem;
+    margin-right: 1rem;
+}
+
+.navbar-end{
+    margin-right: 1.5rem;
+    margin-left: auto;
+    font-weight: bold;
+    color: whitesmoke;
+}

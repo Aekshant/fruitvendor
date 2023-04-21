@@ -1,0 +1,25 @@
+.footer {
+    display: flex;
+    flex-direction: column;
+    background-color: #F0F0F0;
+    margin-top: auto;
+    padding: 2rem;
+  }
+  .footer h3 {
+    width: 1rem;
+  }
+  .footer-statement {
+    width: 25rem;
+  }
+  .footer-terms{
+    font-size: 12px;
+  }
+  .footer-social span{
+    font-weight: 630;
+    font-size: 20px;
+  }
+  .footer-icons{
+    display: flex;
+    justify-content: space-around;
+    margin-top: .5rem;
+  }
