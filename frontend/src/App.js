@@ -1,7 +1,7 @@
 import './App.css';
 // import { Registration } from './componets/Registration';
 // import { Demo } from "./componets/assets/Demo"
-import { LandingPage } from "./LandingPage"
+import { LandingPage } from "./componets/LandingPage"
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap/dist/js/bootstrap.bundle.min';
 
