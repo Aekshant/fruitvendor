@@ -1,0 +1,10 @@
+.downloadApp{
+    display: flex;
+    flex-wrap: wrap;
+}
+.downloadAppText{
+   width: 10rem;
+}
+.downloadAppText p{
+    margin: 0;
+}

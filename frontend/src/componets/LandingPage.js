@@ -2,6 +2,10 @@ import React from 'react'
 import "./LandingPage.css"
 import JointSerachBar from './tools/JointSerachBar'
 import LandingNavBar from './assets/LandingNavBar'
+import { LandingPageCard } from './tools/LandingPageCard'
+import { InlineContainer } from "./tools/InlineContainer"
+import { Footer } from "./assets/Footer"
+import { GetApp } from "./assets/GetApp"
 
 export const LandingPage = () => {
     const myStyle={
@@ -27,6 +31,14 @@ export const LandingPage = () => {
         <div style={{ width: "100%", top : 0, position:"absolute", marginLeft: "24%", marginTop: "22%" }}>
               <JointSerachBar/>
         </div>
+        <InlineContainer style={{ marginLeft : "auto", marginRight: "auto",marginTop: "3%", width: "100%", justifyContent: "center", marginBottom : "5%" }}>
+          <LandingPageCard title="Order Online" description="Stay home and order to your doorstep" src="./cardFruit.jpg"/>
+          <LandingPageCard title="Walk In" description="View City's nearby stores" src="./walkIn.jpg" />
+          <LandingPageCard title="Find Stores" description="Explore the city's top alley vendors" src="./find.jpg" />
+        </InlineContainer>
+        <GetApp/>
+        <Footer/>
     </div>
   )
 }
+//Order Online, Walk in ,Location Filter
