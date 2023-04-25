@@ -15,3 +15,8 @@
   left: 50%;
   margin-left: -3px;
 }
+
+.landingPageTransparent{
+  filter: blur(8px);
+}
+

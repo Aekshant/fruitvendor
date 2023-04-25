@@ -10,7 +10,7 @@ export const Footer = () => {
       <InlineContainer>
         <div>
           <h3>Vendors.org</h3>
-          <p className='footer-statement'>Efforts To Make A Junction To A Street Vendors.</p>
+          <p className='footer-statement'>Efforts To Make A Junction To A Alley Vendors.</p>
         </div>
         <div className='footer-social' style={{ width: "20%", marginLeft: "45%" }}>
             <span>Social Links</span>

@@ -1,0 +1,17 @@
+
+.SignInTransparent{
+    position: fixed;
+    display: flex;
+    justify-content: center;
+    height: 100%;
+    width: 100%;
+}
+
+.SignInTransparentLayer{
+    position: fixed;
+    background-color: rgb(28, 28, 28);
+    opacity: 0.8;
+    visibility: visible;
+    height: 100%;
+    width: 100%;
+}

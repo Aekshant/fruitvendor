@@ -1,0 +1,17 @@
+
+
+.orContainer{
+    margin-top: 3%;
+}
+.orContainer hr{
+    width: 9.2rem;
+    height: 1.5rem;
+    color: grey;
+}
+  
+.orContainer p{
+    color: grey;
+    font-size: larger;
+    margin-left: .5rem;
+    margin-right: .5rem;
+}

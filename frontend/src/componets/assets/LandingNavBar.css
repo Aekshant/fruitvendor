@@ -5,4 +5,5 @@
   .landingNavBar span{
     color: whitesmoke;
     margin-right: 3rem;
+    cursor: pointer;
   }
