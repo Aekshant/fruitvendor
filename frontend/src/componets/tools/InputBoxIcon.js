@@ -12,7 +12,7 @@ export const InputBoxIcon = ( props ) => {
         <IconContext.Provider value={{ color: 'black', size: '1.8rem' }}>
           <CiSearch/>
         </IconContext.Provider>
-        <input type="search" className="inputIconBox" aria-label="Search" aria-describedby="search-addon" placeholder='Search for fruits or veggies ' style={{ border: "0", width: "85%", marginTop: "0", marginLeft: ".5rem" }} />
+        <input type="search" className="inputIconBox" placeholder='Search for fruits or veggies' style={{ border: "0", width: "85%", marginTop: "0", marginLeft: ".5rem" }} />
       </InlineContainer>
     </div>
   )

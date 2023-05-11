@@ -12,7 +12,7 @@ import { ContinueEmail } from "./tools/ContinueEmail"
 import { CgClose } from "react-icons/cg"
 
 export const LandingPage = () => {
-    const [ transparent, setTransparent ] = useState( true )
+    const [ transparent, setTransparent ] = useState( false )
 
     const myStyle={
       backgroundImage:`url(${process.env.PUBLIC_URL+ "/landing.jpg"})`,

@@ -1,16 +1,19 @@
 import './App.css';
-import { SignIn } from "./componets/assets/SignIn"
-// import { Demo } from "./componets/assets/Demo"
+import {BrowserRouter as Router, Routes, Route} from "react-router-dom"
 import { LandingPage } from "./componets/LandingPage"
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap/dist/js/bootstrap.bundle.min';
+import HomePage from './componets/HomePage';
 
 function App() {
   return (
     <div className="App">
-      <LandingPage />
-      {/* <Demo name="cars" options={ [{ value: "ewd", name: "w2w"  },{ value: "ewd", name: "w2w"  } ] } /> */}
-      {/* <SignIn /> */}
+      <Router>
+        <Routes>
+          <Route path='/' element={ <LandingPage/> } />
+          <Route path='/home' element={ <HomePage/> } />
+        </Routes>
+      </Router>
     </div>
   );
 }
