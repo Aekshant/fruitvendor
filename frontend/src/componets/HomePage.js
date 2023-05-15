@@ -13,7 +13,8 @@ import React from 'react'
 
 const HomePage = () => {
   return (
-    <div style={{ paddingLeft : "6%", paddingTop: "1.5rem", paddingRight : "6%" }}>
+   <div>
+     <div style={{ paddingLeft : "6%", paddingTop: "1.5rem", paddingRight : "6%" }}>
         <InlineContainer style={{ flex:1, marginTop: "1%", alignItems: "center" }} >
             <div className="homePageTitle" ><h3>A Vendor's</h3></div>
             <div className="homePageSearchBar" >
@@ -49,7 +50,7 @@ const HomePage = () => {
             <CustomButton  title={ "Fruits" } />
         </div>
         <div style={{ justifyContent : "start", display : "flex", margin : "2%", marginLeft : "0", color : "grey" }}>
-            <h3>Delivery Restaurants in Maharashtra</h3>
+            <h3>Delivery Vendors in Maharashtra</h3>
         </div>
         <div className="homePageCards">
             <HomePageCard img ={ "./images/Banana.jpg" } />
@@ -60,8 +61,9 @@ const HomePage = () => {
             <HomePageCard img ={ "./images/Strawberries.jpg" }/>
         </div>
     </div>
-    <Footer/>
     </div>
+    <Footer/>
+   </div>
   )
 }
 

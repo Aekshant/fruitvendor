@@ -37,7 +37,7 @@
 }
 
 .homePageCards{
-  background-color: #F6F1F1;
+  background-color: white;
   display: flex;
   flex-wrap: wrap;
   padding-top: 2%;
