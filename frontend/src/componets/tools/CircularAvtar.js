@@ -4,8 +4,8 @@ import "./CircularAvtar.css"
 const CircularAvtar = ( props ) => {
   return (
     <div className="circularAvtar"  {...props}>
-      <img src={ props.imageSrc } style= {props.imgStyle} />
-      <span style={{ color : props.active ? "#D14D72" : "black" }}> { props.title }</span>
+      <img src={ props.imagesrc } style= {props.imgstyle} />
+      <span style={{ color : props.activepage ? "#D14D72" : "black" }}> { props.title }</span>
     </div>
   )
 }

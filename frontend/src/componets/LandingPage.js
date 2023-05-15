@@ -6,10 +6,7 @@ import { LandingPageCard } from './tools/LandingPageCard'
 import { InlineContainer } from "./tools/InlineContainer"
 import { Footer } from "./assets/Footer"
 import { GetApp } from "./assets/GetApp"
-import { PhoneNumber } from "./tools/PhoneNumber"
-import { OrLineContainer } from "../componets/tools/orLine"
-import { ContinueEmail } from "./tools/ContinueEmail"
-import { CgClose } from "react-icons/cg"
+import LogIn from "./assets/LogIn"
 
 export const LandingPage = () => {
     const [ transparent, setTransparent ] = useState( false )
@@ -22,34 +19,14 @@ export const LandingPage = () => {
       objectFit: "cover",
       backgroundPosition: "center",
       position : "relative",
-      filter: transparent ? "blur(2px)" : null 
+      filter: transparent ? "blur(2px)" : null
     };
     const handleTransparent = ( data ) => {
       setTransparent( data )
     }
   return (
     <>
-      <div style={{ overflow:"hidden", display: ( transparent ? "flex" : "none" ), justifyContent: "center", zIndex : 1, position : "relative", marginTop : "auto" }}>
-            <div style={{ top : "10%", position:"fixed", width: "30rem",height: "27rem", backgroundColor: "whitesmoke", borderRadius: ".8rem"}}>
-                <div style={ { display: "flex", justifyContent:"space-between", margin: "1rem" }}>
-                  <h2 style={{ color: "GrayText", textAlign: "start" }}>Login</h2>
-                  <div style={{ margin : ".3rem", cursor: "pointer" }} onClick={ ( ) => { handleTransparent( false ) } }>  <CgClose/> </div>                 
-                </div>
-                
-                <div style={{ display: "flex", flexDirection : "column", alignItems: "center" }}>
-                  <PhoneNumber/>
-                  <div style={{  width : "80%", backgroundColor : "#E64848", height : "3rem", borderRadius : "3px", display: "flex", alignItems: "center", justifyContent: "center", marginTop: "7%" }}>
-                    <span style={{ color: "white" }}>Send One Time Password</span>
-                  </div>
-                  <OrLineContainer/>
-                  <ContinueEmail />
-                  <hr style={{ width: "92%", color: "grey" }}/>
-                  <div>
-                    <span  style={{ fontSize: "1.04rem", color: "GrayText" }}>New to Vendor? <span style={{ color: "#E64848" }}>Create account</span></span>
-                  </div>
-                </div>
-            </div>
-      </div>
+      <LogIn activestate={ transparent } handlestate = { handleTransparent }/>
 
       <div className='LandingPage' style={ myStyle }>
           <div className='landingTransparent' />
