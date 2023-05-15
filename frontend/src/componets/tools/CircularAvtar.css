@@ -1,0 +1,16 @@
+
+.circularAvtar{
+  height: 4.5rem;
+  cursor: pointer;
+}
+
+.circularAvtar img{
+    border-radius: 50%;
+    height: 88%;
+    padding: .7rem;
+}
+
+.circularAvtar span{
+  margin: 1rem;
+  font-weight: 400;
+}

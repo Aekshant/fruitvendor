@@ -1,26 +1,44 @@
 
+.homePageNavButton{
+  margin-left: 5%;
+}
 .homePageNavButton span{
-  width: 10%;
   color: #474E68;
   margin-right: 3rem;
   cursor: pointer;
   font-size: 1.1rem;
 }
-
 .homePageTitle{
-  width: 13%;
+ margin-right: 6%;
 }
 
 .homePageSearchBar{
-  width: 67%;
+  width: 60%;
   box-shadow: 0 0 3px #ccc;
   align-items: center;
 }
 
 .homePageLocation{
   display: flex;
-  margin-left: 2%;
   margin-top: 1.5rem;
   font-size: .95rem;
   color: #ccc;
+}
+
+.homePageContent{
+  display: flex;
+  flex-direction: column;
+  margin-top: 1.3%;
+}
+
+.homePageFilter{
+  display: flex;
+  flex-direction: row;
+}
+
+.homePageCards{
+  background-color: #F6F1F1;
+  display: flex;
+  flex-wrap: wrap;
+  padding-top: 2%;
 }
