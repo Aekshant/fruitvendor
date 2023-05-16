@@ -17,6 +17,8 @@ import React, { useState } from 'react'
 const HomePage = () => {
     const [ transparent, setTransparent ] = useState( false )
     const [ transparentFilter, setTransparentFilter ] = useState( false )
+    const [ currentSection, setSection ] = useState( { "delivery" : 1, "walkIn" : 0, "findStore" : 0 } )
+
     const handleTransparent = ( data ) => {
         setTransparent( data )
     }
@@ -30,7 +32,22 @@ const HomePage = () => {
         height: "30rem", 
         backgroundColor: "whitesmoke", 
         borderRadius: ".8rem"
-      }
+    }
+    const data = [
+        { img : "./images/Banana.jpg", name : "Ram Bhandar", address : "Near Bardi Square", price : "10", unit: "Kg", key : "Banana" },
+        { img : "./images/Orange.jpg", name : "Ram Bhandar", address : "Near Bardi Square", price : "10", unit: "Kg", key : "Orange" },
+        { img : "./images/Banana.jpg", name : "Ram Bhandar", address : "Near Bardi Square", price : "10", unit: "Kg", key : "2" },
+        { img : "./images/Orange.jpg", name : "Ram Bhandar", address : "Near Bardi Square", price : "10", unit: "Kg", key : "3" },
+        { img : "./images/Banana.jpg", name : "Ram Bhandar", address : "Near Bardi Square", price : "10", unit: "Kg", key : "4" },
+        { img : "./images/Orange.jpg", name : "Ram Bhandar", address : "Near Bardi Square", price : "10", unit: "Kg", key : "5" }
+    ]
+    const activeSection = ( sectionName ) => {
+        console.log( sectionName );
+        const obj = { "delivery" : 0, "walkIn" : 0, "findStore" : 0 } 
+        obj[ sectionName ] = 1
+        console.log(obj);
+        setSection( obj )
+    }
   return (
    <div>
      <LogIn activestate={ transparent } handlestate = { handleTransparent }/>
@@ -66,9 +83,9 @@ const HomePage = () => {
     </div>
     <div>
     <InlineContainer style={{ justifyContent : "start", marginTop : "1%", alignItems : "center" }} >
-        <CircularAvtar  imagesrc="./scooter.png" imgstyle={{ backgroundColor : "#F5F0BB" }} style={{ margin : "1%", marginLeft : 0, borderBottom: ".13rem solid #D14D72" }} title ={ "Delivery" } activepage={1} />
-        <CircularAvtar  imagesrc="./walk.png" imgstyle={{ backgroundColor : "" }} style={{ margin : "1%", borderBottom: ".13rem solid grey" }}  title ={ "Walk In" } />
-        <CircularAvtar  imagesrc="./findStore.png" imgstyle={{ backgroundColor : "" }} style={{ margin : "1%", borderBottom: ".13rem solid grey" }}  title ={ "Find Store" } />
+        <CircularAvtar activepage={ currentSection[ "delivery" ] } title="delivery" sectionHandle = { activeSection }/>
+        <CircularAvtar activepage={ currentSection[ "walkIn" ] } title="walkIn" sectionHandle = { activeSection } />
+        <CircularAvtar activepage={ currentSection[ "findStore" ] } title="findStore" sectionHandle = { activeSection } />
     </InlineContainer>
     </div>
     <div className="homePageContent">
@@ -81,13 +98,9 @@ const HomePage = () => {
         <div style={{ justifyContent : "start", display : "flex", margin : "2%", marginLeft : "0" }}>
             <h3>Delivery Vendors in Maharashtra</h3>
         </div>
+
         <div className="homePageCards">
-            <HomePageCard img ={ "./images/Banana.jpg" } />
-            <HomePageCard img ={ "./images/Orange.jpg" }/>
-            <HomePageCard img ={ "./images/Grapes.jpg" }/>
-            <HomePageCard img ={ "./images/Mango.jpg" }/>
-            <HomePageCard img ={ "./images/Pineapple.jpg" }/>
-            <HomePageCard img ={ "./images/Strawberries.jpg" }/>
+            { data.map( item => <HomePageCard { ...item } /> ) }
         </div>
     </div>
      </div>

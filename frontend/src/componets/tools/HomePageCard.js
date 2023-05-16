@@ -9,14 +9,14 @@ const HomePageCard = ( props ) => {
     <div className="homePageCard">
     <img src={ props.img }/>
     <div style={{ display: "flex", justifyContent: "space-between" }}>
-        <span>Ram Bhandar</span>
+        <span>{ props.name }</span>
         <div className='homePageRating'><span>4.0</span><AiOutlineStar/></div>
     </div>
     <div style={{ display: "flex", justifyContent: "space-between", color: "gray" }}>
-        <span>Near Bardi Square</span>
+        <span>{ props.address }</span>
         <div className='homePagePrize'>
           <BiRupee/>
-          <span>10 for one Kg</span>
+          <span>{ props.price } for one { props.unit }</span>
         </div>
     </div>
     <hr/>

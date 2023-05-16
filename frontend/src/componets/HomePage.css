@@ -37,10 +37,11 @@
 }
 
 .homePageCards{
-  background-color: white;
+  background-color: #F4F6FF;
   display: flex;
   flex-wrap: wrap;
   padding-top: 1%;
+  border-radius: 1%;
 }
 
 .BlurFilter{
