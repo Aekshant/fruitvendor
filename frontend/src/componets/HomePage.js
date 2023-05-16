@@ -42,10 +42,8 @@ const HomePage = () => {
         { img : "./images/Orange.jpg", name : "Ram Bhandar", address : "Near Bardi Square", price : "10", unit: "Kg", key : "5" }
     ]
     const activeSection = ( sectionName ) => {
-        console.log( sectionName );
         const obj = { "delivery" : 0, "walkIn" : 0, "findStore" : 0 } 
         obj[ sectionName ] = 1
-        console.log(obj);
         setSection( obj )
     }
   return (
