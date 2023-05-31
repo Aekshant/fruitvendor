@@ -62,14 +62,12 @@ const HomePage = () => {
         <InlineContainer style={{ flex:1, marginTop: "1%", alignItems: "center" }} >
             <div className="homePageTitle" ><h3>A Vendor's</h3></div>
             <div className="homePageSearchBar" >
-                <InlineContainer style={{ alignItems: "center" }}>
-                    <SelectBox name="search" options={[ { value: "a1", name: "A1", key: "1"  } ]}/>
-                    <h6 style={{ color:"grey", paddingTop: ".6%", fontSize: "1.1rem", marginRight: "1%" }}>|</h6>
-                    <IconContext.Provider value={{ color: 'black', size: '1.8rem' }}>
-                    <CiSearch/>
-                    </IconContext.Provider>
-                    <input type="search" className="inputIconBox" placeholder='Search for fruits or veggies' style={{ border: "0", width: "70%", marginTop: "0", marginLeft: ".5rem" }} />
-                </InlineContainer> 
+                <SelectBox name="search" options={[ { value: "a1", name: "A1", key: "1"  } ]}/>
+                <h6 style={{ color:"grey", paddingTop: ".6%", fontSize: "1.1rem", marginRight: "1%" }}>|</h6>
+                <IconContext.Provider value={{ color: 'black', size: '1.8rem' }}>
+                <CiSearch/>
+                </IconContext.Provider>
+                <input type="search" className="inputIconBox" placeholder='Search for fruits or veggies' style={{ border: "0", width: "60%", marginTop: "0", marginLeft: ".5rem" }} />
             </div>
             <div className="homePageNavButton">
                 <span onClick={ ()=> { handleTransparent( true ) } }>Log In</span>

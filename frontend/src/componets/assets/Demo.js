@@ -1,21 +1,25 @@
-import React from 'react';
-import { BiSearchAlt } from 'react-icons/bi';
-import { InlineContainer } from "../tools/InlineContainer"
+import React, { useState } from 'react';
+import Select from 'react-select';
 
-export const Demo = ( props ) => {
-  
+const options = [
+  { value: 'chocolate', label: 'Chocolate' },
+  { value: 'strawberry', label: 'Strawberry' },
+  { value: 'vanilla', label: 'Vanilla' },
+];
+
+export default function App() {
+  const [selectedOption, setSelectedOption] = useState(null);
+  const clickHandle = ( Selected ) => {
+    console.log( Selected.value );
+  }
+
   return (
-    <div>
-      { props.title ? <label for={ props.name }>{props.title}</label> : null }
-
-      <InlineContainer>
-        <BiSearchAlt/>
-        <select name={ props.name } id={ props.name } className='form-control rounded' style={{ borderLeftWidth: "0" }}>
-          <option selected="selected"></option>
-          { Array.isArray( props.options ) ? props.options.map( option => <option value= { option.value } >{ option.name }</option> ) : null }
-        </select>
-      </InlineContainer>
-
+    <div className="App">
+      <Select
+        defaultValue={selectedOption}
+        onChange={clickHandle}
+        options={options}
+      />
     </div>
   );
 }

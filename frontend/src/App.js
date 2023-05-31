@@ -4,6 +4,7 @@ import { LandingPage } from "./componets/LandingPage"
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap/dist/js/bootstrap.bundle.min';
 import HomePage from './componets/HomePage';
+import Demo from "./componets/assets/Demo"
 
 function App() {
   return (
@@ -12,6 +13,7 @@ function App() {
         <Routes>
           <Route path='/' element={ <LandingPage/> } />
           <Route path='/home' element={ <HomePage/> } />
+          <Route path='/demo' element={ <Demo/> } />
         </Routes>
       </Router>
     </div>

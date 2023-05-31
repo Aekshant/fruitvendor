@@ -16,6 +16,9 @@
   width: 60%;
   box-shadow: 0 0 3px #ccc;
   align-items: center;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
 }
 
 .homePageLocation{
